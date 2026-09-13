@@ -1,4 +1,4 @@
-# Adventure Works — End-to-End Azure Data Engineering Pipeline
+# End-to-End Azure Data Lakehouse — ADF to Power BI
  
 An end-to-end data engineering project built entirely on Azure, implementing a **Medallion (Bronze → Silver → Gold) architecture** with a metadata-driven ingestion pattern, Delta Lake for reliable storage, automated orchestration, and data quality gating. Raw Adventure Works data is pulled from a GitHub API source, transformed with Spark, served through a Lakehouse pattern in Synapse Serverless SQL, and visualized in Power BI.
  
