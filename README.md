@@ -12,7 +12,9 @@ flowchart LR
     D -->|"CETAS\n(Parquet output)"| E[("ADLS Gen2\nGold Container\nExternal Tables — Parquet")]
     E -->|"Serverless SQL Endpoint"| F["Power BI Dashboard"]
 ```
- 
+
+<img width="1000" height="415" alt="architecture_diagram" src="https://github.com/zshafique25/End-to-End-Azure-Data-Lakehouse/blob/master/docs/screenshots/azure-data-lakehouse-system-architecture.svg" />
+
 **Flow summary:**
 1. **Ingest (Bronze):** Azure Data Factory pulls raw CSVs from a GitHub-hosted source into ADLS Gen2, using both a static pipeline and a reusable, metadata-driven dynamic pipeline (Lookup + ForEach over a JSON config).
 2. **Transform (Silver):** Azure Databricks reads Bronze data, validates it with Great Expectations, cleans/transforms it with PySpark, and writes it to ADLS Gen2 **in Delta Lake format**, authenticating via a Microsoft Entra ID app registration whose credentials are pulled from a Databricks secret scope (never hardcoded). This step runs automatically as part of the ADF pipeline via a Notebook activity on a job cluster.
